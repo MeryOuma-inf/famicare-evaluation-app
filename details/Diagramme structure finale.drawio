@@ -1,0 +1,166 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="Page-1" id="rJvk_kVA5UGsbmMqIqjq">
+    <mxGraphModel dx="2487" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="root" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1A2744;fontColor=#ffffff;strokeColor=#2A4080;fontSize=14;fontStyle=1;arcSize=10;" value="&amp;nbsp;Page Login" vertex="1">
+          <mxGeometry height="50" width="160" x="677" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="interv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2A7F7F;fontColor=#ffffff;strokeColor=#3BA8A8;fontSize=12;fontStyle=1;" value="&amp;nbsp;Espace Intervenante" vertex="1">
+          <mxGeometry height="50" width="180" x="200" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8634A;fontColor=#ffffff;strokeColor=#F08060;fontSize=12;fontStyle=1;" value="&amp;nbsp;Espace Admin" vertex="1">
+          <mxGeometry height="50" width="160" x="677" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="resp" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D4A843;fontColor=#ffffff;strokeColor=#B8922E;fontSize=12;fontStyle=1;" value="&amp;nbsp;Espace Responsable" vertex="1">
+          <mxGeometry height="50" width="180" x="1740" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="root" style="edgeStyle=orthogonalEdgeStyle;" target="interv">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="root" style="edgeStyle=orthogonalEdgeStyle;" target="admin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="root" style="edgeStyle=orthogonalEdgeStyle;" target="resp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;fontColor=#085041;strokeColor=#2A7F7F;fontSize=11;" value="📋 Mes tests disponibles" vertex="1">
+          <mxGeometry height="44" width="160" x="-40" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="i2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;fontColor=#085041;strokeColor=#2A7F7F;fontSize=11;" value="▶️ Passer un test" vertex="1">
+          <mxGeometry height="44" width="160" x="210" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="i3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;fontColor=#085041;strokeColor=#2A7F7F;fontSize=11;" value="🏆 Mes résultats" vertex="1">
+          <mxGeometry height="44" width="160" x="400" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ei1" edge="1" parent="1" source="interv" style="edgeStyle=orthogonalEdgeStyle;" target="i1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ei2" edge="1" parent="1" source="interv" style="edgeStyle=orthogonalEdgeStyle;" target="i2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ei3" edge="1" parent="1" source="interv" style="edgeStyle=orthogonalEdgeStyle;" target="i3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i1a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#2A7F7F;fontSize=10;" value="Liste tests actifs(catégorie, titre, nb questions)" vertex="1">
+          <mxGeometry height="50" width="170" x="-220" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="ei1a" edge="1" parent="1" source="i1" style="edgeStyle=orthogonalEdgeStyle;" target="i1a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i2a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#2A7F7F;fontSize=10;" value="Question par question(image + choix réponses)" vertex="1">
+          <mxGeometry height="50" width="170" x="10" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="i2b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#2A7F7F;fontSize=10;" value="Confirmation soumission" vertex="1">
+          <mxGeometry height="50" width="140" x="190" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="ei2a" edge="1" parent="1" source="i2" style="edgeStyle=orthogonalEdgeStyle;" target="i2a">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="322" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ei2b" edge="1" parent="1" source="i2" style="edgeStyle=orthogonalEdgeStyle;" target="i2b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i3a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#2A7F7F;fontSize=10;" value="Score + mention\n(page résultat immédiat)" vertex="1">
+          <mxGeometry height="50" width="170" x="350" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="i3b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#2A7F7F;fontSize=10;" value="Historique(tous mes tests passés)" vertex="1">
+          <mxGeometry height="50" width="170" x="540" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="ei3a" edge="1" parent="1" source="i3" style="edgeStyle=orthogonalEdgeStyle;" target="i3a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ei3b" edge="1" parent="1" source="i3" style="edgeStyle=orthogonalEdgeStyle;" target="i3b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAECE7;fontColor=#993C1D;strokeColor=#E8634A;fontSize=11;" value="📝 Créer / gérer tests" vertex="1">
+          <mxGeometry height="44" width="160" x="750" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAECE7;fontColor=#993C1D;strokeColor=#E8634A;fontSize=11;" value="📊 Tableau de bord" vertex="1">
+          <mxGeometry height="44" width="160" x="1140" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAECE7;fontColor=#993C1D;strokeColor=#E8634A;fontSize=11;" value="👥 Gestion utilisateurs" vertex="1">
+          <mxGeometry height="44" width="160" x="1494" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ea1" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea2" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a1a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#E8634A;fontSize=10;" value="Formulaire création test(titre, catégorie, durée)" vertex="1">
+          <mxGeometry height="50" width="170" x="720" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="a1b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#E8634A;fontSize=10;" value="Ajout questions(texte + image + réponses)" vertex="1">
+          <mxGeometry height="50" width="170" x="900" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="ea1a" edge="1" parent="1" source="a1" style="edgeStyle=orthogonalEdgeStyle;" target="a1a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea1b" edge="1" parent="1" source="a1" style="edgeStyle=orthogonalEdgeStyle;" target="a1b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#E8634A;fontSize=10;" value="KPIs + graphiques(Chart.js)" vertex="1">
+          <mxGeometry height="50" width="150" x="1240" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="a2b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#E8634A;fontSize=10;" value="Tableau résultats (filtres + export CSV)" vertex="1">
+          <mxGeometry height="50" width="160" x="1080" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="ea2a" edge="1" parent="1" source="a2" style="edgeStyle=orthogonalEdgeStyle;" target="a2a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea2b" edge="1" parent="1" source="a2" style="edgeStyle=orthogonalEdgeStyle;" target="a2b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#E8634A;fontSize=10;" value="Liste intervenantes(actif / inactif)" vertex="1">
+          <mxGeometry height="50" width="155" x="1400" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="a3b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#E8634A;fontSize=10;" value="Ajouter intervenante(formulaire inscription)" vertex="1">
+          <mxGeometry height="50" width="155" x="1560" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3a" edge="1" parent="1" source="a3" style="edgeStyle=orthogonalEdgeStyle;" target="a3a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3b" edge="1" parent="1" source="a3" style="edgeStyle=orthogonalEdgeStyle;" target="a3b">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1620" y="390" />
+              <mxPoint x="1598" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;fontColor=#633806;strokeColor=#D4A843;fontSize=11;" value="📈 Vue d&#39;ensemble scores" vertex="1">
+          <mxGeometry height="44" width="170" x="1717.5" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;fontColor=#633806;strokeColor=#D4A843;fontSize=11;" value="👤 Fiche par intervenante" vertex="1">
+          <mxGeometry height="44" width="170" x="1990" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="er1" edge="1" parent="1" source="resp" style="edgeStyle=orthogonalEdgeStyle;" target="r1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er2" edge="1" parent="1" source="resp" style="edgeStyle=orthogonalEdgeStyle;" target="r2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r1a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#D4A843;fontSize=10;" value="Scores moyens par test\nRépartition mentions" vertex="1">
+          <mxGeometry height="50" width="155" x="1725" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="er1a" edge="1" parent="1" source="r1" style="edgeStyle=orthogonalEdgeStyle;" target="r1a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#D4A843;fontSize=10;" value="Historique tests\nGraphique évolution" vertex="1">
+          <mxGeometry height="50" width="155" x="1997.5" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="er2a" edge="1" parent="1" source="r2" style="edgeStyle=orthogonalEdgeStyle;" target="r2a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

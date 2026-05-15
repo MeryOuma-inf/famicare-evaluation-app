@@ -1,0 +1,143 @@
+
+<style>
+#erd-container { padding: 1rem 0; }
+#erd-diagram { overflow-x: auto; }
+</style>
+<div id="erd-container">
+  <div id="erd-diagram"></div>
+</div>
+<script type="module">
+import mermaid from 'https://esm.sh/mermaid@11/dist/mermaid.esm.min.mjs';
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+await document.fonts.ready;
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"Anthropic Sans", sans-serif',
+  themeVariables: {
+    darkMode: dark,
+    fontSize: '13px',
+    fontFamily: '"Anthropic Sans", sans-serif',
+    lineColor: dark ? '#9c9a92' : '#73726c',
+    textColor: dark ? '#c2c0b6' : '#3d3d3a',
+    primaryColor: dark ? '#2a2a28' : '#f4f6fa',
+    primaryBorderColor: dark ? '#4a4a46' : '#c8cdd8',
+    primaryTextColor: dark ? '#c2c0b6' : '#1a2744',
+  },
+});
+
+const diagram = `erDiagram
+  UTILISATEURS {
+    int id PK
+    varchar email
+    varchar mot_de_passe
+    enum role
+    tinyint actif
+    datetime created_at
+  }
+
+  INTERVENANTES {
+    int id PK
+    int id_utilisateur FK
+    varchar prenom
+    varchar nom
+    varchar telephone
+    enum categorie
+    date date_inscription
+  }
+
+  TESTS {
+    int id PK
+    varchar titre
+    text description
+    enum categorie
+    int duree_limite
+    enum statut
+    datetime created_at
+  }
+
+  QUESTIONS {
+    int id PK
+    int id_test FK
+    text texte
+    enum type
+    varchar image_path
+    int points
+    int ordre
+  }
+
+  CHOIX_REPONSES {
+    int id PK
+    int id_question FK
+    text texte
+    tinyint est_correcte
+  }
+
+  RESULTATS {
+    int id PK
+    int id_intervenante FK
+    int id_test FK
+    int score
+    decimal pourcentage
+    enum mention
+    int duree_secondes
+    datetime date_passage
+  }
+
+  REPONSES_DETAIL {
+    int id PK
+    int id_resultat FK
+    int id_question FK
+    int id_choix_reponse FK
+    tinyint est_correcte
+  }
+
+  NOTIFICATIONS {
+    int id PK
+    int id_destinataire FK
+    varchar type
+    text message
+    int id_resultat FK
+    tinyint lue
+    datetime created_at
+  }
+
+  UTILISATEURS ||--o| INTERVENANTES : "est"
+  INTERVENANTES ||--o{ RESULTATS : "passe"
+  TESTS ||--o{ QUESTIONS : "contient"
+  QUESTIONS ||--o{ CHOIX_REPONSES : "propose"
+  RESULTATS ||--o{ REPONSES_DETAIL : "détaille"
+  QUESTIONS ||--o{ REPONSES_DETAIL : "concerne"
+  CHOIX_REPONSES ||--o{ REPONSES_DETAIL : "choisie dans"
+  RESULTATS ||--o{ NOTIFICATIONS : "génère"
+  UTILISATEURS ||--o{ NOTIFICATIONS : "reçoit"
+  TESTS ||--o{ RESULTATS : "évalué par"
+`;
+
+const { svg } = await mermaid.render('erd-svg', diagram);
+document.getElementById('erd-diagram').innerHTML = svg;
+
+document.querySelectorAll('#erd-diagram svg.erDiagram .node').forEach(node => {
+  const firstPath = node.querySelector('path[d]');
+  if (!firstPath) return;
+  const d = firstPath.getAttribute('d');
+  const nums = d.match(/-?[\d.]+/g)?.map(Number);
+  if (!nums || nums.length < 8) return;
+  const xs = [nums[0], nums[2], nums[4], nums[6]];
+  const ys = [nums[1], nums[3], nums[5], nums[7]];
+  const x = Math.min(...xs), y = Math.min(...ys);
+  const w = Math.max(...xs) - x, h = Math.max(...ys) - y;
+  const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+  rect.setAttribute('x', x); rect.setAttribute('y', y);
+  rect.setAttribute('width', w); rect.setAttribute('height', h);
+  rect.setAttribute('rx', '8');
+  for (const a of ['fill', 'stroke', 'stroke-width', 'class', 'style']) {
+    if (firstPath.hasAttribute(a)) rect.setAttribute(a, firstPath.getAttribute(a));
+  }
+  firstPath.replaceWith(rect);
+});
+
+document.querySelectorAll('#erd-diagram svg.erDiagram .row-rect-odd path, #erd-diagram svg.erDiagram .row-rect-even path').forEach(p => {
+  p.setAttribute('stroke', 'none');
+});
+</script>
