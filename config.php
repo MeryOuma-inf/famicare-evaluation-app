@@ -1,33 +1,34 @@
 <?php
 /**
- * config.php
- * ================================================
- * Configuration globale de l'application FamiCare.
- * Ce fichier est inclus en premier dans chaque page.
- * ================================================
+ * config.php — Configuration générale FamiCare
+ * =====================================================
+ * Constantes BDD + Email + URLs
+ * NE JAMAIS COMMITTER ce fichier avec de vrais mots de passe !
+ * =====================================================
  */
 
-// --- Base de données (correspond a ta BDD dans phpMyAdmin) ---
+// ===== BASE DE DONNÉES =====
 define('DB_HOST',    'localhost');
-define('DB_NAME',    'famicare_evaluation'); // Nom exact de ta BDD creee en semaine 2
-define('DB_USER',    'root');                // Utilisateur WAMP par defaut
-define('DB_PASS',    '');                    // Mot de passe vide par defaut avec WAMP
+define('DB_NAME',    'famicare_evaluation');
+define('DB_USER',    'root');
+define('DB_PASS',    '');
 define('DB_CHARSET', 'utf8mb4');
 
-// --- URL du site dans le navigateur ---
+// ===== URL DE BASE =====
 define('BASE_URL', 'http://localhost/famicare/');
 
-// --- Chemins vers les dossiers ---
+// ===== CONFIGURATION EMAIL (Mailtrap pour les tests) =====
+// 1. Crée un compte gratuit sur https://mailtrap.io
+// 2. Va dans Email Testing → Inboxes → Mon Inbox → SMTP Settings
+// 3. Copie les identifiants ici
+
+define('MAIL_HOST',      'sandbox.smtp.mailtrap.io'); // Mailtrap SMTP
+define('MAIL_USER',      'TON_USERNAME_MAILTRAP');    // ← à remplacer
+define('MAIL_PASS',      'TON_PASSWORD_MAILTRAP');    // ← à remplacer
+define('MAIL_PORT',      2525);                        // Port Mailtrap
+define('MAIL_FROM',      'noreply@famicare.fr');       // Expéditeur
+define('MAIL_FROM_NAME', 'FamiCare Évaluation');       // Nom expéditeur
+define('MAIL_FAMICARE',  'contact@famicare.fr');       // Email FamiCare responsable
+
+// ===== CHEMINS =====
 define('UPLOAD_PATH', __DIR__ . '/uploads/questions/');
-define('UPLOAD_URL',  BASE_URL . 'uploads/questions/');
-
-// --- Seuils mentions (coherents avec ta table resultats) ---
-// Ta BDD : insuffisant / satisfaisant / bien / excellent
-define('SEUIL_INSUFFISANT',  50); // < 50%  = insuffisant (rouge)
-define('SEUIL_SATISFAISANT', 75); // 50-74% = satisfaisant (orange)
-define('SEUIL_BIEN',         90); // 75-89% = bien (vert clair)
-                                  // >= 90% = excellent (vert fonce)
-
-// --- Upload images questions ---
-define('UPLOAD_MAX_SIZE',        2 * 1024 * 1024);
-define('UPLOAD_TYPES_AUTORISES', ['image/jpeg', 'image/png', 'image/webp']);

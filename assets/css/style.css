@@ -1,57 +1,52 @@
 /*
  * assets/css/style.css
  * =====================================================
- * CSS personnalisé FamiCare
- * Chargé APRÈS Bootstrap 5 pour le compléter
- *
- * Organisation :
- *  1. Variables couleurs FamiCare
- *  2. Base & typographie
- *  3. Navbar
- *  4. Contenu principal
- *  5. Boutons
- *  6. Cartes
- *  7. Badges mentions
- *  8. Formulaires
- *  9. Alertes
- * 10. Footer
- * 11. Utilitaires
- * 12. Responsive mobile
+ * CSS personnalisé FamiCare — Charte graphique officielle
+ * Police : Playfair Display
+ * Couleurs officielles FamiCare fournies par la responsable
  * =====================================================
  */
 
+/* ===================================================
+   IMPORT GOOGLE FONTS — Playfair Display (officiel FamiCare)
+=================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
 
 /* ===================================================
-   1. VARIABLES COULEURS FAMICARE
-   Utilisées partout avec var(--fc-primaire) etc.
-   Pour changer une couleur : modifier ici seulement !
+   1. VARIABLES COULEURS FAMICARE OFFICIELLES
 =================================================== */
 :root {
-    /* Couleurs principales */
-    --fc-primaire:       #E8846A;   /* Saumon — boutons, accents */
-    --fc-primaire-dark:  #D06A52;   /* Saumon foncé — survol boutons */
-    --fc-primaire-pale:  #FBF0EC;   /* Rose très clair — fonds doux */
+    /* ---- Couleurs officielles FamiCare ---- */
+    --fc-bleu-gris:      #D1DCE9;   /* Bleu gris clair — sections, badges */
+    --fc-jaune:          #F7E597;   /* Jaune doux — accents, highlights */
+    --fc-rose:           #F5E4EB;   /* Rose pâle — fonds doux, cartes */
+    --fc-blanc:          #FFFFFF;   /* Blanc pur — fond général */
+    --fc-noir:           #2A2727;   /* Texte principal */
 
-    /* Couleurs texte & structure */
-    --fc-navy:           #1B2B3A;   /* Bleu marine — texte principal */
-    --fc-navy-light:     #3D5166;   /* Bleu clair — texte secondaire */
-    --fc-muted:          #8A9BAD;   /* Gris bleuté — texte discret */
+    /* ---- Dérivés pour les interactions ---- */
+    --fc-bleu-gris-dark: #B8CAE0;   /* Bleu gris foncé — hover */
+    --fc-jaune-dark:     #E8CF60;   /* Jaune foncé — hover boutons */
+    --fc-rose-dark:      #E8C8D8;   /* Rose foncé — hover */
+    --fc-noir-light:     #5A5555;   /* Texte secondaire */
+    --fc-muted:          #9A9494;   /* Texte discret */
+    --fc-border:         #E8E0E0;   /* Bordures douces */
 
-    /* Fonds */
-    --fc-cream:          #F5F0E8;   /* Crème chaud — fond général */
-    --fc-cream-dark:     #EDE6D8;   /* Crème foncé — fonds alternatifs */
-    --fc-white:          #FFFFFF;   /* Blanc pur — cartes */
+    /* ---- Couleurs mentions BDD ---- */
+    --fc-insuffisant:    #EF4444;
+    --fc-satisfaisant:   #F59E0B;
+    --fc-bien:           #3B82F6;
+    --fc-excellent:      #10B981;
 
-    /* Bordures */
-    --fc-border:         #E5DDD0;   /* Bordure douce */
-
-    /* Couleurs mentions (cohérentes avec la BDD) */
-    --fc-insuffisant:    #EF4444;   /* Rouge */
-    --fc-satisfaisant:   #F59E0B;   /* Orange */
-    --fc-bien:           #3B82F6;   /* Bleu */
-    --fc-excellent:      #10B981;   /* Vert */
-
-    /* Couleurs système */
+    /* ---- Aliases pour compatibilité avec le code existant ---- */
+    --fc-primaire:       #D1DCE9;
+    --fc-primaire-dark:  #B8CAE0;
+    --fc-primaire-pale:  #EEF3F9;
+    --fc-navy:           #2A2727;
+    --fc-navy-light:     #5A5555;
+    --fc-cream:          #FFFFFF;
+    --fc-cream-dark:     #F5E4EB;
+    --fc-white:          #FFFFFF;
     --fc-succes:         #10B981;
     --fc-danger:         #EF4444;
     --fc-warning:        #F59E0B;
@@ -66,28 +61,27 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'DM Sans', sans-serif;  /* Police principale FamiCare */
-    background-color: var(--fc-cream);
-    color: var(--fc-navy);
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--fc-blanc);
+    color: var(--fc-noir);
     font-size: 15px;
     line-height: 1.65;
     min-height: 100vh;
-
-    /* Flex vertical pour coller le footer en bas */
     display: flex;
     flex-direction: column;
 }
 
-/* Titres avec la police serif élégante */
-h1, h2, h3 {
-    font-family: 'Cormorant Garamond', serif;
+/* Titres — Playfair Display (police officielle FamiCare) */
+h1, h2, h3, h4,
+.fc-titre,
+.section-title,
+.fc-page-title {
+    font-family: 'Playfair Display', serif !important;
     font-weight: 700;
-    color: var(--fc-navy);
+    color: var(--fc-noir);
     line-height: 1.2;
 }
 
@@ -95,47 +89,28 @@ h1 { font-size: 2.2rem; }
 h2 { font-size: 1.7rem; }
 h3 { font-size: 1.3rem; }
 
-/* Titres de section standard */
-.fc-page-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--fc-navy);
-    margin-bottom: 6px;
-}
-
-.fc-page-subtitle {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--fc-muted);
-    margin-bottom: 28px;
-}
-
 a {
-    color: var(--fc-primaire);
+    color: var(--fc-noir);
     text-decoration: none;
     transition: opacity 0.2s;
 }
-a:hover {
-    opacity: 0.8;
-}
+a:hover { opacity: 0.75; }
 
 
 /* ===================================================
    3. NAVBAR
 =================================================== */
 .fc-navbar {
-    background: var(--fc-white);
-    border-bottom: 1px solid var(--fc-border);
+    background: var(--fc-blanc);
+    border-bottom: 2px solid var(--fc-bleu-gris);
     height: 64px;
-    flex-shrink: 0;                             /* Ne rétrécit pas */
-    box-shadow: 0 1px 8px rgba(27,43,58,.06);
-    position: sticky;                           /* Reste en haut au scroll */
+    flex-shrink: 0;
+    box-shadow: 0 2px 12px rgba(42,39,39,.06);
+    position: sticky;
     top: 0;
     z-index: 100;
 }
 
-/* Conteneur interne centré */
 .fc-navbar-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -146,22 +121,12 @@ a:hover {
     gap: 32px;
 }
 
-/* Logo dans la navbar */
-.fc-navbar-logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    flex-shrink: 0;
-}
-
-.fc-logo-img {
-    height: 36px;
+.fc-navbar-logo img {
+    height: 38px;
     width: auto;
     object-fit: contain;
-    display: block;
 }
 
-/* Liens du menu */
 .fc-navbar-links {
     display: flex;
     align-items: center;
@@ -172,28 +137,23 @@ a:hover {
 .fc-nav-link {
     font-size: 14px;
     font-weight: 400;
-    color: var(--fc-navy-light);
+    color: var(--fc-noir-light);
     text-decoration: none;
     padding: 7px 14px;
     border-radius: 8px;
     transition: all .18s;
-    white-space: nowrap;
 }
 
-/* Survol et page active */
-.fc-nav-link:hover {
-    background: var(--fc-cream);
-    color: var(--fc-navy);
-    text-decoration: none;
+.fc-nav-link:hover,
+.fc-nav-link.active {
+    background: var(--fc-bleu-gris);
+    color: var(--fc-noir);
 }
 
 .fc-nav-link.active {
-    background: var(--fc-primaire-pale);
-    color: var(--fc-primaire);
     font-weight: 500;
 }
 
-/* Prénom + déconnexion à droite */
 .fc-navbar-right {
     display: flex;
     align-items: center;
@@ -205,51 +165,43 @@ a:hover {
 .fc-nav-user {
     font-size: 13px;
     font-weight: 500;
-    color: var(--fc-navy);
-    background: var(--fc-cream);
+    color: var(--fc-noir);
+    background: var(--fc-bleu-gris);
     padding: 6px 14px;
     border-radius: 50px;
     border: 1px solid var(--fc-border);
-    white-space: nowrap;
 }
 
 .fc-btn-logout {
     font-size: 13px;
     font-weight: 500;
-    color: var(--fc-primaire);
+    color: var(--fc-noir);
     text-decoration: none;
     padding: 7px 16px;
     border-radius: 50px;
-    border: 1.5px solid var(--fc-primaire);
+    border: 1.5px solid var(--fc-noir);
     transition: all .2s;
-    white-space: nowrap;
 }
-
 .fc-btn-logout:hover {
-    background: var(--fc-primaire);
-    color: var(--fc-white);
-    text-decoration: none;
+    background: var(--fc-noir);
+    color: var(--fc-blanc);
 }
 
 
 /* ===================================================
    4. CONTENU PRINCIPAL
 =================================================== */
-
-/* Grandit pour occuper l'espace restant */
 .fc-main {
     flex: 1;
     padding: 36px 0 52px;
 }
 
-/* Conteneur centré réutilisable */
 .fc-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 32px;
 }
 
-/* En-tête de page (titre + sous-titre + bouton action) */
 .fc-page-header {
     display: flex;
     align-items: flex-start;
@@ -258,12 +210,25 @@ a:hover {
     gap: 16px;
 }
 
+.fc-page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--fc-noir);
+    margin-bottom: 6px;
+}
+
+.fc-page-subtitle {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--fc-muted);
+    margin-bottom: 28px;
+}
+
 
 /* ===================================================
    5. BOUTONS
 =================================================== */
-
-/* Base commune à tous les boutons */
 .fc-btn {
     display: inline-flex;
     align-items: center;
@@ -281,112 +246,109 @@ a:hover {
     white-space: nowrap;
 }
 
-/* Bouton principal — saumon FamiCare */
+/* Bouton principal — bleu gris FamiCare */
 .fc-btn-primary {
-    background: var(--fc-primaire);
-    color: var(--fc-white);
+    background: var(--fc-bleu-gris);
+    color: var(--fc-noir);
+    border: 1.5px solid var(--fc-bleu-gris-dark);
 }
 .fc-btn-primary:hover {
-    background: var(--fc-primaire-dark);
-    color: var(--fc-white);
+    background: var(--fc-bleu-gris-dark);
+    color: var(--fc-noir);
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(232,132,106,.32);
+    box-shadow: 0 6px 18px rgba(209,220,233,.5);
     text-decoration: none;
 }
 
-/* Bouton contour (outline) */
+/* Bouton jaune — accent FamiCare */
+.fc-btn-accent {
+    background: var(--fc-jaune);
+    color: var(--fc-noir);
+    border: 1.5px solid var(--fc-jaune-dark);
+}
+.fc-btn-accent:hover {
+    background: var(--fc-jaune-dark);
+    color: var(--fc-noir);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(247,229,151,.5);
+    text-decoration: none;
+}
+
+/* Bouton rose */
+.fc-btn-rose {
+    background: var(--fc-rose);
+    color: var(--fc-noir);
+    border: 1.5px solid var(--fc-rose-dark);
+}
+.fc-btn-rose:hover {
+    background: var(--fc-rose-dark);
+    color: var(--fc-noir);
+    text-decoration: none;
+}
+
+/* Bouton contour */
 .fc-btn-outline {
     background: transparent;
-    color: var(--fc-primaire);
-    border: 1.5px solid var(--fc-primaire);
+    color: var(--fc-noir);
+    border: 1.5px solid var(--fc-noir);
 }
 .fc-btn-outline:hover {
-    background: var(--fc-primaire);
-    color: var(--fc-white);
+    background: var(--fc-noir);
+    color: var(--fc-blanc);
     text-decoration: none;
 }
 
-/* Bouton secondaire gris */
-.fc-btn-secondary {
-    background: var(--fc-cream-dark);
-    color: var(--fc-navy);
-    border: 1px solid var(--fc-border);
-}
-.fc-btn-secondary:hover {
-    background: var(--fc-border);
-    color: var(--fc-navy);
-    text-decoration: none;
-}
-
-/* Bouton danger rouge */
+/* Bouton danger */
 .fc-btn-danger {
     background: var(--fc-danger);
-    color: var(--fc-white);
+    color: var(--fc-blanc);
 }
 .fc-btn-danger:hover {
     background: #C53030;
-    color: var(--fc-white);
+    color: var(--fc-blanc);
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(239,68,68,.3);
     text-decoration: none;
 }
 
 /* Tailles */
-.fc-btn-sm {
-    padding: 6px 14px;
-    font-size: 12px;
-}
-.fc-btn-lg {
-    padding: 13px 32px;
-    font-size: 15px;
-}
-.fc-btn-full {
-    width: 100%;
-}
+.fc-btn-sm  { padding: 6px 14px; font-size: 12px; }
+.fc-btn-lg  { padding: 13px 32px; font-size: 15px; }
+.fc-btn-full { width: 100%; }
 
 
 /* ===================================================
    6. CARTES
 =================================================== */
 .fc-card {
-    background: var(--fc-white);
+    background: var(--fc-blanc);
     border-radius: 16px;
     padding: 24px;
     border: 1px solid var(--fc-border);
     transition: box-shadow .2s, transform .2s;
 }
-
 .fc-card:hover {
-    box-shadow: 0 6px 24px rgba(27,43,58,.08);
+    box-shadow: 0 6px 24px rgba(42,39,39,.08);
 }
 
-.fc-card-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--fc-navy);
-    margin-bottom: 4px;
-}
-
-.fc-card-subtitle {
-    font-size: 12px;
-    color: var(--fc-muted);
-    font-weight: 300;
-}
-
-/* Cartes KPI (statistiques en haut du tableau de bord) */
+/* Cartes KPI */
 .fc-kpi-card {
-    background: var(--fc-white);
+    background: var(--fc-blanc);
     border-radius: 16px;
     padding: 22px;
     border: 1px solid var(--fc-border);
     text-align: center;
+    transition: all .2s;
+}
+.fc-kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(42,39,39,.08);
 }
 
 .fc-kpi-number {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 2.4rem;
     font-weight: 700;
-    color: var(--fc-primaire);
+    color: var(--fc-noir);
     line-height: 1;
     margin-bottom: 6px;
 }
@@ -397,11 +359,27 @@ a:hover {
     font-weight: 400;
 }
 
+/* Carte rose (accent) */
+.fc-card-rose {
+    background: var(--fc-rose);
+    border-color: var(--fc-rose-dark);
+}
+
+/* Carte bleu gris */
+.fc-card-bleu {
+    background: var(--fc-bleu-gris);
+    border-color: var(--fc-bleu-gris-dark);
+}
+
+/* Carte jaune */
+.fc-card-jaune {
+    background: var(--fc-jaune);
+    border-color: var(--fc-jaune-dark);
+}
+
 
 /* ===================================================
    7. BADGES MENTIONS
-   Cohérents avec les valeurs ENUM de la BDD :
-   insuffisant / satisfaisant / bien / excellent
 =================================================== */
 .fc-badge {
     display: inline-flex;
@@ -413,36 +391,22 @@ a:hover {
     white-space: nowrap;
 }
 
-.fc-badge-insuffisant  {
-    background: #FEE2E2;
-    color: #991B1B;
-}
-.fc-badge-satisfaisant {
-    background: #FEF3C7;
-    color: #92400E;
-}
-.fc-badge-bien {
-    background: #DBEAFE;
-    color: #1E40AF;
-}
-.fc-badge-excellent {
-    background: #D1FAE5;
-    color: #065F46;
-}
+.fc-badge-insuffisant  { background: #FEE2E2; color: #991B1B; }
+.fc-badge-satisfaisant { background: var(--fc-jaune); color: #78610A; }
+.fc-badge-bien         { background: var(--fc-bleu-gris); color: #1E3A5F; }
+.fc-badge-excellent    { background: #D1FAE5; color: #065F46; }
 
 
 /* ===================================================
    8. FORMULAIRES
 =================================================== */
-.fc-form-group {
-    margin-bottom: 18px;
-}
+.fc-form-group { margin-bottom: 18px; }
 
 .fc-label {
     display: block;
     font-size: 13px;
     font-weight: 500;
-    color: var(--fc-navy);
+    color: var(--fc-noir);
     margin-bottom: 7px;
 }
 
@@ -455,19 +419,17 @@ a:hover {
     border-radius: 10px;
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
-    color: var(--fc-navy);
-    background: var(--fc-cream);
+    color: var(--fc-noir);
+    background: var(--fc-blanc);
     outline: none;
     transition: all .2s;
-    appearance: none;
 }
 
 .fc-input:focus,
 .fc-select:focus,
 .fc-textarea:focus {
-    border-color: var(--fc-primaire);
-    background: var(--fc-white);
-    box-shadow: 0 0 0 3px rgba(232,132,106,.12);
+    border-color: var(--fc-bleu-gris-dark);
+    box-shadow: 0 0 0 3px rgba(209,220,233,.4);
 }
 
 .fc-input::placeholder,
@@ -479,10 +441,8 @@ a:hover {
 .fc-textarea {
     min-height: 100px;
     resize: vertical;
-    line-height: 1.6;
 }
 
-/* Message d'erreur sous un champ */
 .fc-field-error {
     font-size: 12px;
     color: var(--fc-danger);
@@ -492,13 +452,12 @@ a:hover {
 
 
 /* ===================================================
-   9. ALERTES / MESSAGES
+   9. ALERTES
 =================================================== */
 .fc-alert {
     padding: 13px 16px;
     border-radius: 10px;
     font-size: 13px;
-    font-weight: 400;
     margin-bottom: 18px;
     display: flex;
     align-items: flex-start;
@@ -506,33 +465,17 @@ a:hover {
     line-height: 1.5;
 }
 
-.fc-alert-success {
-    background: #D1FAE5;
-    color: #065F46;
-    border: 1px solid #6EE7B7;
-}
-.fc-alert-error {
-    background: #FEE2E2;
-    color: #991B1B;
-    border: 1px solid #FCA5A5;
-}
-.fc-alert-warning {
-    background: #FEF3C7;
-    color: #92400E;
-    border: 1px solid #FDE68A;
-}
-.fc-alert-info {
-    background: #DBEAFE;
-    color: #1E40AF;
-    border: 1px solid #93C5FD;
-}
+.fc-alert-success { background: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; }
+.fc-alert-error   { background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; }
+.fc-alert-warning { background: var(--fc-jaune); color: #78610A; border: 1px solid var(--fc-jaune-dark); }
+.fc-alert-info    { background: var(--fc-bleu-gris); color: #1E3A5F; border: 1px solid var(--fc-bleu-gris-dark); }
 
 
 /* ===================================================
    10. FOOTER
 =================================================== */
 .fc-footer {
-    background: var(--fc-navy);
+    background: var(--fc-noir);
     padding: 24px 0;
     flex-shrink: 0;
 }
@@ -544,12 +487,10 @@ a:hover {
     text-align: center;
 }
 
-.fc-footer-logo {
-    margin-bottom: 10px;
-}
+.fc-footer-logo { margin-bottom: 10px; }
 
 .fc-footer-text {
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.55);
     font-size: 13px;
     margin: 0 0 4px;
 }
@@ -562,48 +503,23 @@ a:hover {
 
 
 /* ===================================================
-   11. UTILITAIRES
+   11. TABLEAUX
 =================================================== */
-
-/* Séparateur horizontal */
-.fc-divider {
-    border: none;
-    border-top: 1px solid var(--fc-border);
-    margin: 24px 0;
-}
-
-/* Texte coloré */
-.fc-text-primaire  { color: var(--fc-primaire) !important; }
-.fc-text-navy      { color: var(--fc-navy) !important; }
-.fc-text-muted     { color: var(--fc-muted) !important; }
-.fc-text-succes    { color: var(--fc-succes) !important; }
-.fc-text-danger    { color: var(--fc-danger) !important; }
-
-/* Fonds colorés */
-.fc-bg-cream  { background: var(--fc-cream) !important; }
-.fc-bg-white  { background: var(--fc-white) !important; }
-.fc-bg-pale   { background: var(--fc-primaire-pale) !important; }
-
-/* Espacement */
-.fc-mt-page { margin-top: 32px; }
-.fc-mb-section { margin-bottom: 32px; }
-
-/* Tableau simple */
 .fc-table {
     width: 100%;
     border-collapse: collapse;
-    background: var(--fc-white);
+    background: var(--fc-blanc);
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--fc-border);
 }
 
 .fc-table th {
-    background: var(--fc-cream);
+    background: var(--fc-bleu-gris);
     padding: 12px 16px;
     font-size: 12px;
     font-weight: 600;
-    color: var(--fc-muted);
+    color: var(--fc-noir);
     text-transform: uppercase;
     letter-spacing: 0.8px;
     text-align: left;
@@ -613,70 +529,66 @@ a:hover {
 .fc-table td {
     padding: 14px 16px;
     font-size: 14px;
-    color: var(--fc-navy);
+    color: var(--fc-noir);
     border-bottom: 1px solid var(--fc-border);
     vertical-align: middle;
 }
 
-.fc-table tr:last-child td {
-    border-bottom: none;
-}
+.fc-table tr:last-child td { border-bottom: none; }
 
-.fc-table tr:hover td {
-    background: var(--fc-cream);
-}
+.fc-table tr:hover td { background: var(--fc-rose); }
 
 
 /* ===================================================
-   12. RESPONSIVE MOBILE
-   Adaptations pour écrans < 768px
+   12. UTILITAIRES
+=================================================== */
+.fc-divider { border: none; border-top: 1px solid var(--fc-border); margin: 24px 0; }
+
+.fc-text-primary  { color: var(--fc-noir) !important; }
+.fc-text-muted    { color: var(--fc-muted) !important; }
+.fc-text-succes   { color: var(--fc-succes) !important; }
+.fc-text-danger   { color: var(--fc-danger) !important; }
+
+.fc-bg-blanc { background: var(--fc-blanc) !important; }
+.fc-bg-bleu  { background: var(--fc-bleu-gris) !important; }
+.fc-bg-jaune { background: var(--fc-jaune) !important; }
+.fc-bg-rose  { background: var(--fc-rose) !important; }
+
+
+/* ===================================================
+   13. SECTION LABELS (badges de section)
+=================================================== */
+.fc-section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.fc-section-label-bleu  { background: var(--fc-bleu-gris);  color: #1E3A5F; }
+.fc-section-label-jaune { background: var(--fc-jaune);       color: #78610A; }
+.fc-section-label-rose  { background: var(--fc-rose);        color: #7A2A4A; }
+
+
+/* ===================================================
+   14. RESPONSIVE
 =================================================== */
 @media (max-width: 768px) {
-
-    /* Navbar */
-    .fc-navbar-inner {
-        padding: 0 16px;
-        gap: 12px;
-    }
-    .fc-navbar-links {
-        display: none; /* Menu caché sur mobile (à améliorer avec hamburger) */
-    }
-
-    /* Contenu */
-    .fc-container {
-        padding: 0 16px;
-    }
-    .fc-main {
-        padding: 20px 0 32px;
-    }
-
-    /* En-tête de page en colonne sur mobile */
-    .fc-page-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    /* Titres plus petits */
-    .fc-page-title { font-size: 1.6rem; }
+    .fc-navbar-inner { padding: 0 16px; gap: 12px; }
+    .fc-navbar-links { display: none; }
+    .fc-container     { padding: 0 16px; }
+    .fc-main          { padding: 20px 0 32px; }
+    .fc-page-header   { flex-direction: column; }
+    .fc-page-title    { font-size: 1.6rem; }
     h1 { font-size: 1.8rem; }
     h2 { font-size: 1.4rem; }
-
-    /* Footer */
-    .fc-footer-inner {
-        padding: 0 16px;
-    }
-
-    /* KPI cards en 2 colonnes */
-    .fc-kpi-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
+    .fc-footer-inner  { padding: 0 16px; }
 }
 
 @media (max-width: 480px) {
-    .fc-kpi-grid {
-        grid-template-columns: 1fr !important;
-    }
-    .fc-nav-user {
-        display: none;
-    }
+    .fc-nav-user { display: none; }
 }

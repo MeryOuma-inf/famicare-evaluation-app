@@ -22,23 +22,23 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FamiCare — Espace Évaluation des Intervenants</title>
+  <title>FamiCare — Espace Évaluation des Intervenantes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ===== VARIABLES ===== */
     :root {
-      --cream:       #F5F0E8;
-      --cream-dark:  #EDE6D8;
-      --salmon:      #E8846A;
-      --salmon-d:    #D06A52;
-      --salmon-pale: #FBF0EC;
-      --navy:        #1B2B3A;
-      --navy-l:      #3D5166;
-      --muted:       #8A9BAD;
+      --blanc:       #FFFFFF;
+      --rose:        #F5E4EB;
+      --bleu:        #D1DCE9;
+      --bleu-d:      #B8CAE0;
+      --jaune:       #F7E597;
+      --noir:        #2A2727;
+      --noir-l:      #5A5555;
+      --muted:       #9A9494;
       --white:       #FFFFFF;
-      --border:      #E5DDD0;
+      --border:      #E8E0E0;
     }
 
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -47,8 +47,8 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--navy);
+      background: var(--blanc);
+      color: var(--noir);
       font-size: 15px;
       line-height: 1.65;
     }
@@ -74,17 +74,17 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       text-decoration: none;
       transition: all .22s;
     }
-    .btn-primary { background: var(--salmon); color: #fff; }
-    .btn-primary:hover { background: var(--salmon-d); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,132,106,.35); color: #fff; }
-    .btn-outline { background: transparent; color: var(--salmon); border: 2px solid var(--salmon); }
-    .btn-outline:hover { background: var(--salmon); color: #fff; }
-    .btn-white { background: #fff; color: var(--navy); }
-    .btn-white:hover { background: var(--cream); transform: translateY(-1px); color: var(--navy); }
+    .btn-primary { background: var(--bleu); color: var(--noir); border: 1.5px solid var(--bleu-d); }
+    .btn-primary:hover { background: var(--bleu-d); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(209,220,233,.35); color: #fff; }
+    .btn-outline { background: transparent; color: var(--bleu); border: 2px solid var(--bleu); }
+    .btn-outline:hover { background: var(--bleu); color: #fff; }
+    .btn-white { background: #fff; color: var(--noir); }
+    .btn-white:hover { background: var(--blanc); transform: translateY(-1px); color: var(--noir); }
 
     .section-label {
       display: inline-block;
-      background: var(--salmon-pale);
-      color: var(--salmon);
+      background: var(--jaune);
+      color: var(--bleu);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2px;
@@ -95,10 +95,10 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     }
 
     .section-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Playfair Display', serif;
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 700;
-      color: var(--navy);
+      color: var(--noir);
       line-height: 1.15;
       margin-bottom: 14px;
     }
@@ -106,7 +106,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     .section-sub {
       font-size: 15px;
       font-weight: 300;
-      color: var(--navy-l);
+      color: var(--noir-l);
       line-height: 1.7;
       max-width: 560px;
     }
@@ -123,7 +123,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       transition: box-shadow .3s;
     }
     .site-header.scrolled {
-      box-shadow: 0 2px 20px rgba(27,43,58,.08);
+      box-shadow: 0 2px 20px rgba(42,39,39,.08);
     }
 
     .header-inner {
@@ -152,13 +152,13 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     .header-nav a {
       font-size: 14px;
       font-weight: 400;
-      color: var(--navy-l);
+      color: var(--noir-l);
       text-decoration: none;
       padding: 7px 14px;
       border-radius: 8px;
       transition: all .18s;
     }
-    .header-nav a:hover { background: var(--cream-dark); color: var(--navy); }
+    .header-nav a:hover { background: var(--rose); color: var(--noir); }
 
     .header-right {
       display: flex;
@@ -202,10 +202,10 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     }
 
     .hero-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Playfair Display', serif;
       font-size: clamp(38px, 4.5vw, 58px);
       font-weight: 700;
-      color: var(--navy);
+      color: var(--noir);
       line-height: 1.08;
       letter-spacing: -1px;
       margin-bottom: 20px;
@@ -213,13 +213,13 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
 
     .hero-title em {
       font-style: italic;
-      color: var(--salmon);
+      color: var(--bleu);
     }
 
     .hero-sub {
       font-size: 15px;
       font-weight: 300;
-      color: var(--navy-l);
+      color: var(--noir-l);
       line-height: 1.7;
       max-width: 420px;
       margin-bottom: 36px;
@@ -251,10 +251,10 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     .hero-stat:last-child { border-right: none; }
     .hero-stat strong {
       display: block;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 26px;
       font-weight: 700;
-      color: var(--salmon);
+      color: var(--bleu);
       line-height: 1;
     }
     .hero-stat span {
@@ -283,7 +283,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       border: 1px solid var(--border);
       transition: all .22s;
     }
-    .feature-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(27,43,58,.09); border-color: transparent; }
+    .feature-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(42,39,39,.09); border-color: transparent; }
 
     .fi {
       width: 36px; height: 36px;
@@ -297,7 +297,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     .fi-purple { background: #F5F3FF; }
 
     .ft { display: flex; flex-direction: column; gap: 2px; }
-    .fl { font-size: 12px; font-weight: 600; color: var(--navy); }
+    .fl { font-size: 12px; font-weight: 600; color: var(--noir); }
     .fd { font-size: 10px; font-weight: 300; color: var(--muted); }
 
     /* Hero droite */
@@ -316,7 +316,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       content: '';
       position: absolute;
       inset: 0; left: 0; width: 80px;
-      background: linear-gradient(to right, var(--cream), transparent);
+      background: linear-gradient(to right, var(--blanc), transparent);
       z-index: 2; pointer-events: none;
     }
 
@@ -327,12 +327,12 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       border-radius: 14px;
       padding: 14px 18px;
       display: flex; align-items: center; gap: 12px;
-      box-shadow: 0 4px 20px rgba(27,43,58,.14);
+      box-shadow: 0 4px 20px rgba(42,39,39,.14);
       z-index: 3;
       backdrop-filter: blur(8px);
     }
     .hb-dot { width: 10px; height: 10px; background: #4CAF82; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(76,175,130,.22); }
-    .hb-info strong { display: block; font-size: 13px; font-weight: 600; color: var(--navy); }
+    .hb-info strong { display: block; font-size: 13px; font-weight: 600; color: var(--noir); }
     .hb-info span { font-size: 11px; color: var(--muted); font-weight: 300; }
 
     /* ===== SECTION À PROPOS ===== */
@@ -368,15 +368,15 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       background: var(--white);
       border-radius: 16px;
       padding: 20px 24px;
-      box-shadow: 0 8px 32px rgba(27,43,58,.12);
+      box-shadow: 0 8px 32px rgba(42,39,39,.12);
       border: 1px solid var(--border);
       min-width: 200px;
     }
     .afc-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 36px;
       font-weight: 700;
-      color: var(--salmon);
+      color: var(--bleu);
       line-height: 1;
     }
     .afc-label {
@@ -400,21 +400,21 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       align-items: flex-start;
       gap: 12px;
       font-size: 14px;
-      color: var(--navy-l);
+      color: var(--noir-l);
       line-height: 1.6;
     }
     .check-icon {
       width: 22px; height: 22px;
-      background: var(--salmon-pale);
+      background: var(--jaune);
       border-radius: 50%;
       flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
       margin-top: 1px;
     }
-    .check-icon svg { width: 11px; height: 11px; stroke: var(--salmon); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--bleu); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 
     /* ===== SECTION SERVICES ===== */
-    .section-services { padding: 110px 0 120px; background: var(--cream); overflow: hidden; }
+    .section-services { padding: 110px 0 120px; background: var(--blanc); overflow: hidden; }
     .section-header { text-align: center; margin-bottom: 64px; }
     .section-header .section-sub { margin: 0 auto; }
 
@@ -432,9 +432,9 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       height: 480px;
       transform-style: preserve-3d;
       transition: box-shadow .4s ease;
-      box-shadow: 0 8px 32px rgba(27,43,58,.10);
+      box-shadow: 0 8px 32px rgba(42,39,39,.10);
     }
-    .svc-card:hover { box-shadow: 0 28px 64px rgba(27,43,58,.22); }
+    .svc-card:hover { box-shadow: 0 28px 64px rgba(42,39,39,.22); }
 
     .svc-bg {
       position: absolute;
@@ -469,7 +469,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     .svc-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(27,43,58,0) 30%, rgba(27,43,58,.55) 65%, rgba(27,43,58,.92) 100%);
+      background: linear-gradient(180deg, rgba(42,39,39,0) 30%, rgba(42,39,39,.55) 65%, rgba(42,39,39,.92) 100%);
       transition: opacity .35s ease;
     }
 
@@ -480,7 +480,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       transition: opacity .4s ease;
     }
     .svc-card:hover .svc-color-overlay { opacity: .18; }
-    .col-menage { background: var(--salmon); }
+    .col-menage { background: var(--bleu); }
     .col-garde  { background: #1B9E7A; }
     .col-accomp { background: #7C5CC8; }
 
@@ -511,7 +511,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     .svc-card:hover .svc-tag { background: rgba(255,255,255,.28); }
 
     .svc-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 26px;
       font-weight: 700;
       color: #fff;
@@ -616,14 +616,14 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       z-index: 1;
     }
     .svc-card:hover .svc-glow { opacity: 1; }
-    .glow-menage { background: radial-gradient(circle, rgba(232,132,106,.35) 0%, transparent 70%); }
+    .glow-menage { background: radial-gradient(circle, rgba(209,220,233,.35) 0%, transparent 70%); }
     .glow-garde  { background: radial-gradient(circle, rgba(27,158,122,.35) 0%, transparent 70%); }
     .glow-accomp { background: radial-gradient(circle, rgba(124,92,200,.35) 0%, transparent 70%); }
 
     /* ===== SECTION ÉTAPES ===== */
     .section-steps {
       padding: 100px 0;
-      background: var(--navy);
+      background: var(--noir);
       position: relative;
       overflow: hidden;
     }
@@ -633,7 +633,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       top: -100px; right: -100px;
       width: 400px; height: 400px;
       border-radius: 50%;
-      background: var(--salmon);
+      background: var(--bleu);
       opacity: .06;
     }
     .section-steps::after {
@@ -646,7 +646,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       opacity: .03;
     }
 
-    .section-steps .section-label { background: rgba(232,132,106,.2); color: #F4A882; }
+    .section-steps .section-label { background: rgba(209,220,233,.2); color: #F4A882; }
     .section-steps .section-title { color: #fff; }
     .section-steps .section-sub { color: rgba(255,255,255,.6); }
 
@@ -690,21 +690,21 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
 
     .step-num {
       width: 44px; height: 44px;
-      background: var(--salmon);
+      background: var(--bleu);
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 20px;
       font-weight: 700;
       color: #fff;
       margin-bottom: 18px;
     }
 
-    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.3; }
+    .step-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.3; }
     .step-desc  { font-size: 13px; font-weight: 300; color: rgba(255,255,255,.6); line-height: 1.65; }
 
     /* ===== SECTION CHIFFRES ===== */
-    .section-numbers { padding: 80px 0; background: var(--salmon); }
+    .section-numbers { padding: 80px 0; background: var(--bleu); }
 
     .numbers-grid {
       display: grid;
@@ -720,7 +720,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     .number-item:last-child { border-right: none; }
 
     .number-big {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 52px;
       font-weight: 700;
       color: #fff;
@@ -741,7 +741,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     }
 
     .why-card {
-      background: var(--cream);
+      background: var(--blanc);
       border-radius: 18px;
       padding: 28px;
       border: 1px solid var(--border);
@@ -750,23 +750,23 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       align-items: flex-start;
       transition: all .22s;
     }
-    .why-card:hover { background: var(--white); box-shadow: 0 8px 28px rgba(27,43,58,.08); transform: translateY(-3px); }
+    .why-card:hover { background: var(--white); box-shadow: 0 8px 28px rgba(42,39,39,.08); transform: translateY(-3px); }
 
     .why-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .why-icon svg { width: 24px; height: 24px; }
-    .wi-salmon { background: var(--salmon-pale); }
+    .wi-salmon { background: var(--jaune); }
     .wi-green  { background: #ECFDF5; }
     .wi-blue   { background: #EFF6FF; }
     .wi-purple { background: #F5F3FF; }
 
-    .why-content h3 { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-    .why-content p  { font-size: 13px; font-weight: 300; color: var(--navy-l); line-height: 1.65; }
+    .why-content h3 { font-size: 16px; font-weight: 600; color: var(--noir); margin-bottom: 6px; }
+    .why-content p  { font-size: 13px; font-weight: 300; color: var(--noir-l); line-height: 1.65; }
 
     /* ===== CTA SECTION ===== */
-    .section-cta { padding: 80px 0; background: var(--cream-dark); text-align: center; }
+    .section-cta { padding: 80px 0; background: var(--rose); text-align: center; }
 
     .cta-box {
-      background: var(--navy);
+      background: var(--noir);
       border-radius: 28px;
       padding: 60px 48px;
       text-align: center;
@@ -779,17 +779,17 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       top: -60px; right: -60px;
       width: 250px; height: 250px;
       border-radius: 50%;
-      background: var(--salmon);
+      background: var(--bleu);
       opacity: .08;
     }
 
-    .cta-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; color: #fff; margin-bottom: 14px; position: relative; z-index: 1; }
+    .cta-box h2 { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: #fff; margin-bottom: 14px; position: relative; z-index: 1; }
     .cta-box p  { font-size: 15px; color: rgba(255,255,255,.65); font-weight: 300; margin-bottom: 32px; position: relative; z-index: 1; }
 
     .cta-btns { display: flex; align-items: center; justify-content: center; gap: 14px; position: relative; z-index: 1; }
 
     /* ===== FOOTER ===== */
-    .site-footer { background: var(--navy); padding: 64px 0 0; border-top: 1px solid rgba(255,255,255,.06); }
+    .site-footer { background: var(--noir); padding: 64px 0 0; border-top: 1px solid rgba(255,255,255,.06); }
 
     .footer-top {
       display: grid;
@@ -803,24 +803,24 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     .footer-brand p   { font-size: 13px; color: rgba(255,255,255,.5); font-weight: 300; line-height: 1.7; margin-bottom: 20px; max-width: 280px; }
 
     .footer-contact-item { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: rgba(255,255,255,.5); margin-bottom: 8px; }
-    .footer-contact-item svg { width: 14px; height: 14px; stroke: var(--salmon); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .footer-contact-item svg { width: 14px; height: 14px; stroke: var(--bleu); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
     .footer-col h4 { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 18px; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 10px; }
     .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,.6); text-decoration: none; font-weight: 300; transition: color .2s; }
-    .footer-col ul li a:hover { color: var(--salmon); }
+    .footer-col ul li a:hover { color: var(--bleu); }
 
     .footer-bottom { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
     .footer-bottom p { font-size: 12px; color: rgba(255,255,255,.3); }
     .footer-bottom a { font-size: 12px; color: rgba(255,255,255,.3); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--salmon); }
+    .footer-bottom a:hover { color: var(--bleu); }
 
     /* ===== MODALE CONNEXION ===== */
     .modal-overlay {
       display: none;
       position: fixed; inset: 0;
-      background: rgba(27,43,58,.5);
+      background: rgba(42,39,39,.5);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -842,45 +842,45 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
     }
     @keyframes slideD { from{opacity:0;transform:translateY(-18px)} to{opacity:1;transform:translateY(0)} }
 
-    .modal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; background: var(--cream); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
-    .modal-close:hover { background: var(--cream-dark); }
-    .modal-close svg { width: 13px; height: 13px; stroke: var(--navy); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; background: var(--blanc); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+    .modal-close:hover { background: var(--rose); }
+    .modal-close svg { width: 13px; height: 13px; stroke: var(--noir); fill: none; stroke-width: 2.5; stroke-linecap: round; }
 
-    .modal-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--salmon); display: block; margin-bottom: 8px; }
-    .modal-title   { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 5px; }
+    .modal-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--bleu); display: block; margin-bottom: 8px; }
+    .modal-title   { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--noir); line-height: 1.2; margin-bottom: 5px; }
     .modal-sub     { font-size: 13px; color: var(--muted); font-weight: 300; margin-bottom: 24px; }
 
-    .role-sw { display: grid; grid-template-columns: 1fr 1fr; background: var(--cream); border-radius: 12px; padding: 3px; margin-bottom: 22px; border: 1px solid var(--border); gap: 3px; }
+    .role-sw { display: grid; grid-template-columns: 1fr 1fr; background: var(--blanc); border-radius: 12px; padding: 3px; margin-bottom: 22px; border: 1px solid var(--border); gap: 3px; }
     .role-btn { padding: 9px 8px; border-radius: 9px; border: none; background: transparent; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; color: var(--muted); cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
-    .role-btn.active { background: var(--white); color: var(--navy); box-shadow: 0 1px 5px rgba(27,43,58,.1); }
+    .role-btn.active { background: var(--white); color: var(--noir); box-shadow: 0 1px 5px rgba(42,39,39,.1); }
     .role-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     .fg { margin-bottom: 16px; }
-    .flabel { display: block; font-size: 12px; font-weight: 500; color: var(--navy); margin-bottom: 6px; }
+    .flabel { display: block; font-size: 12px; font-weight: 500; color: var(--noir); margin-bottom: 6px; }
     .iw { position: relative; }
     .iico { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; stroke: var(--muted); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; transition: stroke .2s; }
-    .finput { width: 100%; height: 48px; padding: 0 13px 0 42px; border: 1.5px solid var(--border); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--navy); background: var(--cream); outline: none; transition: all .2s; }
+    .finput { width: 100%; height: 48px; padding: 0 13px 0 42px; border: 1.5px solid var(--border); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--noir); background: var(--blanc); outline: none; transition: all .2s; }
     .finput::placeholder { color: var(--muted); font-weight: 300; }
-    .finput:focus { border-color: var(--salmon); background: var(--white); box-shadow: 0 0 0 3px rgba(232,132,106,.12); }
-    .finput:focus ~ .iico { stroke: var(--salmon); }
+    .finput:focus { border-color: var(--bleu); background: var(--white); box-shadow: 0 0 0 3px rgba(209,220,233,.12); }
+    .finput:focus ~ .iico { stroke: var(--bleu); }
     .pw-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
-    .pw-link { font-size: 11px; color: var(--salmon); text-decoration: none; font-weight: 500; }
+    .pw-link { font-size: 11px; color: var(--bleu); text-decoration: none; font-weight: 500; }
     .tpw { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--muted); line-height: 0; }
     .tpw svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-    .btn-submit { width: 100%; height: 50px; background: var(--salmon); color: #fff; border: none; border-radius: 50px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 9px; transition: all .22s; margin-top: 6px; }
-    .btn-submit:hover { background: var(--salmon-d); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(232,132,106,.3); }
+    .btn-submit { width: 100%; height: 50px; background: var(--bleu); color: #fff; border: none; border-radius: 50px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 9px; transition: all .22s; margin-top: 6px; }
+    .btn-submit:hover { background: var(--bleu-d); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(209,220,233,.3); }
     .btn-submit svg { width: 15px; height: 15px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
     .btn-submit:hover svg { transform: translateX(4px); }
 
     .merr { padding: 11px 14px; border-radius: 10px; font-size: 12px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; background: #FEE2E2; border: 1px solid #FCA5A5; color: #991B1B; }
     .merr svg { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
 
-    .demo-hint { margin-top: 18px; padding: 13px 15px; background: var(--cream); border-radius: 12px; border: 1px solid var(--border); }
+    .demo-hint { margin-top: 18px; padding: 13px 15px; background: var(--blanc); border-radius: 12px; border: 1px solid var(--border); }
     .demo-hint p { font-size: 10.5px; color: var(--muted); font-style: italic; margin-bottom: 8px; }
     .demo-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
     .dl { font-size: 11px; color: var(--muted); }
-    .dv { font-family: 'Courier New', monospace; font-size: 10.5px; color: var(--navy); background: var(--border); padding: 2px 7px; border-radius: 4px; }
+    .dv { font-family: 'Courier New', monospace; font-size: 10.5px; color: var(--noir); background: var(--border); padding: 2px 7px; border-radius: 4px; }
 
     /* ===== ANIMATIONS SCROLL ===== */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
@@ -935,7 +935,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
 <section class="hero">
   <div class="hero-left">
     <div class="badge-intern">Plateforme interne FamiCare</div>
-    <h1 class="hero-title">Évaluez vos<br>intervenants<br>avec <em>précision</em></h1>
+    <h1 class="hero-title">Évaluez vos<br>intervenantes<br>avec <em>précision</em></h1>
     <p class="hero-sub">Une plateforme dédiée à l'évaluation, la formation et le suivi de la montée en compétences de vos équipes à domicile.</p>
     <div class="hero-cta-group">
       <button class="btn btn-primary" onclick="openModal()">
@@ -984,7 +984,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
-        <img src="<?= BASE_URL ?>assets/images/photomenage.avif" alt="Équipe FamiCare" class="about-img-main">
+        <img src="<?= BASE_URL ?>assets/images/intervenante.jpg" alt="Équipe FamiCare" class="about-img-main">
         <div class="about-float-card">
           <div class="afc-num">98%</div>
           <div class="afc-label">de nos intervenantes satisfaites · Île-de-France & Lyon</div>
@@ -1024,7 +1024,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
         <div class="svc-body">
           <div class="svc-tag">● MÉNAGE</div>
           <h3 class="svc-title">
-            <div class="svc-title-icon" style="background:rgba(232,132,106,.3)">
+            <div class="svc-title-icon" style="background:rgba(209,220,233,.3)">
               <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l7-7m0 0l4-4m-4 4l-1.5-1.5M10 14l4-4m0 0l3.5-3.5a2.121 2.121 0 013 3L17 14"/><path d="M14 10l-4 4"/></svg>
             </div>
             Ménage &amp; Repassage
@@ -1139,7 +1139,7 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
       <p class="section-sub">Travailler chez FamiCare, c'est bénéficier d'un accompagnement complet, de missions régulières et d'une vraie reconnaissance de vos compétences.</p>
     </div>
     <div class="why-grid">
-      <div class="why-card reveal"><div class="why-icon wi-salmon"><svg viewBox="0 0 24 24" stroke="var(--salmon)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="why-content"><h3>Contrat stable CDD / CDI</h3><p>Postes à temps plein ou partiel selon vos disponibilités. Un emploi stable avec une protection sociale complète.</p></div></div>
+      <div class="why-card reveal"><div class="why-icon wi-salmon"><svg viewBox="0 0 24 24" stroke="var(--bleu)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="why-content"><h3>Contrat stable CDD / CDI</h3><p>Postes à temps plein ou partiel selon vos disponibilités. Un emploi stable avec une protection sociale complète.</p></div></div>
       <div class="why-card reveal reveal-delay-1"><div class="why-icon wi-green"><svg viewBox="0 0 24 24" stroke="#10B981" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="why-content"><h3>Formation gratuite de 15 jours</h3><p>Dès votre intégration, suivez une formation d'aide à domicile entièrement prise en charge par FamiCare.</p></div></div>
       <div class="why-card reveal reveal-delay-2"><div class="why-icon wi-blue"><svg viewBox="0 0 24 24" stroke="#3B82F6" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="why-content"><h3>Missions rapides & régulières</h3><p>Recevez vos premières missions de ménage, repassage ou garde d'enfants en quelques jours seulement.</p></div></div>
       <div class="why-card reveal reveal-delay-3"><div class="why-icon wi-purple"><svg viewBox="0 0 24 24" stroke="#8B5CF6" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div class="why-content"><h3>Suivi & évolution personnalisée</h3><p>Votre progression est suivie grâce à cette plateforme d'évaluation. Vos compétences sont reconnues et valorisées.</p></div></div>
@@ -1304,7 +1304,6 @@ unset($_SESSION['login_erreur']); // Effacer après affichage
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
- 
 
   <?php if ($erreur): ?>window.addEventListener('load', openModal);<?php endif; ?>
 </script>
